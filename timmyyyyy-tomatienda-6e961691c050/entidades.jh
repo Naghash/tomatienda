@@ -1,0 +1,70 @@
+entity Empleado {
+	nombre String required,
+    apellido String required,
+    dni String required pattern (/^[0-9]{8,8}[A-Za-z]$/),
+    fechanac Instant required,
+    ingreso Instant required,
+    sueldo Integer required,
+    cargo String required
+}
+
+entity Producto {
+	nombre String required,
+    stock Integer required min (0),
+    caducidad Instant required,
+    seccion String required,
+    descripcion String required,
+    pvp Double required min (0),
+    pcompra Double required min (0),
+    minstock Integer required min (-1),
+    lote Integer required min (1),
+    foto String required
+}
+
+// an ignored comment
+/** not an ignored comment */
+entity Cliente {
+	nombre String required,
+	apellidos String required,
+    direccion String required,
+	email String required pattern (/^([a-zA-Z0-9_\\-\\.]+)@([a-zA-Z0-9_\\-\\.]+)\\.([a-zA-Z]{2,5})$/),
+    compras Integer,
+    total Double
+	
+}
+
+entity Conline {
+	importe Integer,
+    fecha Instant,
+    descuento Boolean,
+    codigo Integer
+}
+
+entity Cfisica {
+	importe Double,
+	fecha Instant,
+    codigo Integer
+    
+}
+
+enum Language {
+   SPANISH
+}
+relationship OneToMany {
+	Cliente{conline} to Conline
+}
+relationship OneToMany {
+	Empleado{cfisica} to Cfisica
+}
+relationship ManyToMany {
+	Conline{producto(nombre)} to Producto{conline}
+}
+relationship ManyToMany {
+	Cfisica{producto(nombre)} to Producto{cfisica}
+}
+
+paginate all with pagination
+
+service all with serviceImpl
+
+

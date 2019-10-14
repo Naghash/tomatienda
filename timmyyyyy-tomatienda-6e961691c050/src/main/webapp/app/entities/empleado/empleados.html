@@ -1,0 +1,72 @@
+<div>
+    <h2 data-translate="tomatiendaApp.empleado.home.title">Empleados</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="empleado.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  data-translate="tomatiendaApp.empleado.home.createLabel">
+                        Create new Empleado
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th jh-sort-by="id"><span data-translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="nombre"><span data-translate="tomatiendaApp.empleado.nombre">Nombre</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="apellido"><span data-translate="tomatiendaApp.empleado.apellido">Apellido</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="dni"><span data-translate="tomatiendaApp.empleado.dni">Dni</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="fechanac"><span data-translate="tomatiendaApp.empleado.fechanac">Fechanac</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="ingreso"><span data-translate="tomatiendaApp.empleado.ingreso">Ingreso</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="sueldo"><span data-translate="tomatiendaApp.empleado.sueldo">Sueldo</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="cargo"><span data-translate="tomatiendaApp.empleado.cargo">Cargo</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="empleado in vm.empleados track by empleado.id">
+                    <td><a ui-sref="empleado-detail({id:empleado.id})">{{empleado.id}}</a></td>
+                    <td>{{empleado.nombre}}</td>
+                    <td>{{empleado.apellido}}</td>
+                    <td>{{empleado.dni}}</td>
+                    <td>{{empleado.fechanac | date:'medium'}}</td>
+                    <td>{{empleado.ingreso | date:'medium'}}</td>
+                    <td>{{empleado.sueldo}}</td>
+                    <td>{{empleado.cargo}}</td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="empleado-detail({id:empleado.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="empleado.edit({id:empleado.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="empleado.delete({id:empleado.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center">
+        <jhi-item-count page="vm.page" total="vm.queryCount" items-per-page="vm.itemsPerPage"></jhi-item-count>
+        <uib-pagination class="pagination-sm" total-items="vm.totalItems" items-per-page="vm.itemsPerPage" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
+    </div>
+</div>

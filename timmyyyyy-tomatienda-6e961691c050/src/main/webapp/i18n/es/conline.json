@@ -1,0 +1,27 @@
+
+{
+    "tomatiendaApp": {
+        "conline" : {
+            "home": {
+                "title": "Conlines",
+                "createLabel": "Crear nuevo Conline",
+                "createOrEditLabel": "Crear o editar Conline"
+            },
+            "created": "Un nuevo Conline ha sido creado con el identificador {{ param }}",
+            "updated": "Un Conline ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Conline ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Conline {{ id }}?"
+            },
+            "detail": {
+                "title": "Conline"
+            },
+            "importe": "Importe",
+            "fecha": "Fecha",
+            "descuento": "Descuento",
+            "codigo": "Codigo",
+            "cliente": "Cliente",
+            "producto": "Producto"
+        }
+    }
+}

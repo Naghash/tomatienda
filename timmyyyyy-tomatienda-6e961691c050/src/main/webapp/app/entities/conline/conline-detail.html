@@ -1,0 +1,45 @@
+
+<div>
+    <h2><span data-translate="tomatiendaApp.conline.detail.title">Conline</span> {{vm.conline.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="tomatiendaApp.conline.importe">Importe</span></dt>
+        <dd>
+            <span>{{vm.conline.importe}}</span>
+        </dd>
+        <dt><span data-translate="tomatiendaApp.conline.fecha">Fecha</span></dt>
+        <dd>
+            <span>{{vm.conline.fecha | date:'medium'}}</span>
+        </dd>
+        <dt><span data-translate="tomatiendaApp.conline.descuento">Descuento</span></dt>
+        <dd>
+            <span>{{vm.conline.descuento}}</span>
+        </dd>
+        <dt><span data-translate="tomatiendaApp.conline.codigo">Codigo</span></dt>
+        <dd>
+            <span>{{vm.conline.codigo}}</span>
+        </dd>
+        <dt><span data-translate="tomatiendaApp.conline.cliente">Cliente</span></dt>
+        <dd>
+            <a ui-sref="cliente-detail({id:vm.conline.cliente.id})">{{vm.conline.cliente.id}}</a>
+        </dd>
+        <dt><span data-translate="tomatiendaApp.conline.producto">Producto</span></dt>
+        <dd>
+            <span ng-repeat="producto in vm.conline.productos">
+                <a ui-sref="producto-detail({id: producto.id})">{{producto.nombre}}</a>{{$last ? '' : ', '}}
+            </span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="conline-detail.edit({id:vm.conline.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

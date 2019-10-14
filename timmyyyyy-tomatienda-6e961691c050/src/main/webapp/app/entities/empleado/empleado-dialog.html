@@ -1,0 +1,134 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myEmpleadoLabel" data-translate="tomatiendaApp.empleado.home.createOrEditLabel">Create or edit a Empleado</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.empleado.id">
+            <label for="id" data-translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.empleado.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="tomatiendaApp.empleado.nombre" for="field_nombre">Nombre</label>
+            <input type="text" class="form-control" name="nombre" id="field_nombre"
+                    ng-model="vm.empleado.nombre"
+                    required/>
+            <div ng-show="editForm.nombre.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.nombre.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="tomatiendaApp.empleado.apellido" for="field_apellido">Apellido</label>
+            <input type="text" class="form-control" name="apellido" id="field_apellido"
+                    ng-model="vm.empleado.apellido"
+                    required/>
+            <div ng-show="editForm.apellido.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.apellido.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="tomatiendaApp.empleado.dni" for="field_dni">Dni</label>
+            <input type="text" class="form-control" name="dni" id="field_dni"
+                    ng-model="vm.empleado.dni"
+                    required ng-pattern="/^[0-9]{8,8}[A-Za-z]$/"/>
+            <div ng-show="editForm.dni.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.dni.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.dni.$error.pattern" data-translate="entity.validation.pattern" translate-value-pattern="Dni">
+                    This field should follow pattern for "Dni".
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="tomatiendaApp.empleado.fechanac" for="field_fechanac">Fechanac</label>
+                <div class="input-group">
+                    <input id="field_fechanac" type="text" class="form-control" name="fechanac" datetime-picker="{{dateformat}}" ng-model="vm.empleado.fechanac" is-open="vm.datePickerOpenStatus.fechanac"
+                    required/>
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('fechanac')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+            <div ng-show="editForm.fechanac.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.fechanac.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.fechanac.$error.ZonedDateTimelocal" data-translate="entity.validation.ZonedDateTimelocal">
+                    This field should be a date and time.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="tomatiendaApp.empleado.ingreso" for="field_ingreso">Ingreso</label>
+                <div class="input-group">
+                    <input id="field_ingreso" type="text" class="form-control" name="ingreso" datetime-picker="{{dateformat}}" ng-model="vm.empleado.ingreso" is-open="vm.datePickerOpenStatus.ingreso"
+                    required/>
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('ingreso')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+            <div ng-show="editForm.ingreso.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.ingreso.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.ingreso.$error.ZonedDateTimelocal" data-translate="entity.validation.ZonedDateTimelocal">
+                    This field should be a date and time.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="tomatiendaApp.empleado.sueldo" for="field_sueldo">Sueldo</label>
+            <input type="number" class="form-control" name="sueldo" id="field_sueldo"
+                    ng-model="vm.empleado.sueldo"
+                    required/>
+            <div ng-show="editForm.sueldo.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.sueldo.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.sueldo.$error.number" data-translate="entity.validation.number">
+                    This field should be a number.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="tomatiendaApp.empleado.cargo" for="field_cargo">Cargo</label>
+            <input type="text" class="form-control" name="cargo" id="field_cargo"
+                    ng-model="vm.empleado.cargo"
+                    required/>
+            <div ng-show="editForm.cargo.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.cargo.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span data-translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span data-translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity Cfisica.
+    -->
+    <changeSet id="20190704145549-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="empleado_id"
+                                 baseTableName="cfisica"
+                                 constraintName="fk_cfisica_empleado_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="empleado"/>
+
+        <addForeignKeyConstraint baseColumnNames="cfisicas_id"
+                                 baseTableName="cfisica_producto"
+                                 constraintName="fk_cfisica_producto_cfisicas_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="cfisica"/>
+        <addForeignKeyConstraint baseColumnNames="productos_id"
+                                 baseTableName="cfisica_producto"
+                                 constraintName="fk_cfisica_producto_productos_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="producto"/>
+        
+    </changeSet>
+</databaseChangeLog>

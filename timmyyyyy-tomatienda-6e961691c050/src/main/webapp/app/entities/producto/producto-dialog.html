@@ -1,0 +1,194 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myProductoLabel" data-translate="tomatiendaApp.producto.home.createOrEditLabel">Create or edit a Producto</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.producto.id">
+            <label for="id" data-translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.producto.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="tomatiendaApp.producto.nombre" for="field_nombre">Nombre</label>
+            <input type="text" class="form-control" name="nombre" id="field_nombre"
+                    ng-model="vm.producto.nombre"
+                    required/>
+            <div ng-show="editForm.nombre.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.nombre.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="tomatiendaApp.producto.stock" for="field_stock">Stock</label>
+            <input type="number" class="form-control" name="stock" id="field_stock"
+                    ng-model="vm.producto.stock"
+                    required min="0"/>
+            <div ng-show="editForm.stock.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.stock.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.stock.$error.min" data-translate="entity.validation.min" translate-value-min="0">
+                    This field should be at least 0.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.stock.$error.number" data-translate="entity.validation.number">
+                    This field should be a number.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="tomatiendaApp.producto.caducidad" for="field_caducidad">Caducidad</label>
+                <div class="input-group">
+                    <input id="field_caducidad" type="text" class="form-control" name="caducidad" datetime-picker="{{dateformat}}" ng-model="vm.producto.caducidad" is-open="vm.datePickerOpenStatus.caducidad"
+                    required/>
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('caducidad')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+            <div ng-show="editForm.caducidad.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.caducidad.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.caducidad.$error.ZonedDateTimelocal" data-translate="entity.validation.ZonedDateTimelocal">
+                    This field should be a date and time.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="tomatiendaApp.producto.seccion" for="field_seccion">Seccion</label>
+            <input type="text" class="form-control" name="seccion" id="field_seccion"
+                    ng-model="vm.producto.seccion"
+                    required/>
+            <div ng-show="editForm.seccion.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.seccion.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="tomatiendaApp.producto.descripcion" for="field_descripcion">Descripcion</label>
+            <input type="text" class="form-control" name="descripcion" id="field_descripcion"
+                    ng-model="vm.producto.descripcion"
+                    required/>
+            <div ng-show="editForm.descripcion.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.descripcion.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="tomatiendaApp.producto.pvp" for="field_pvp">Pvp</label>
+            <input type="number" class="form-control" name="pvp" id="field_pvp"
+                    ng-model="vm.producto.pvp"
+                    required min="0"/>
+            <div ng-show="editForm.pvp.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.pvp.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.pvp.$error.min" data-translate="entity.validation.min" translate-value-min="0">
+                    This field should be at least 0.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.pvp.$error.number" data-translate="entity.validation.number">
+                    This field should be a number.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="tomatiendaApp.producto.pcompra" for="field_pcompra">Pcompra</label>
+            <input type="number" class="form-control" name="pcompra" id="field_pcompra"
+                    ng-model="vm.producto.pcompra"
+                    required min="0"/>
+            <div ng-show="editForm.pcompra.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.pcompra.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.pcompra.$error.min" data-translate="entity.validation.min" translate-value-min="0">
+                    This field should be at least 0.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.pcompra.$error.number" data-translate="entity.validation.number">
+                    This field should be a number.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="tomatiendaApp.producto.minstock" for="field_minstock">Minstock</label>
+            <input type="number" class="form-control" name="minstock" id="field_minstock"
+                    ng-model="vm.producto.minstock"
+                    required min="-1"/>
+            <div ng-show="editForm.minstock.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.minstock.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.minstock.$error.min" data-translate="entity.validation.min" translate-value-min="-1">
+                    This field should be at least -1.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.minstock.$error.number" data-translate="entity.validation.number">
+                    This field should be a number.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="tomatiendaApp.producto.lote" for="field_lote">Lote</label>
+            <input type="number" class="form-control" name="lote" id="field_lote"
+                    ng-model="vm.producto.lote"
+                    required min="1"/>
+            <div ng-show="editForm.lote.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.lote.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.lote.$error.min" data-translate="entity.validation.min" translate-value-min="1">
+                    This field should be at least 1.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.lote.$error.number" data-translate="entity.validation.number">
+                    This field should be a number.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="tomatiendaApp.producto.foto" for="field_foto">Foto</label>
+            <input type="text" class="form-control" name="foto" id="field_foto"
+                    ng-model="vm.producto.foto"
+                    required/>
+            <div ng-show="editForm.foto.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.foto.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span data-translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span data-translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

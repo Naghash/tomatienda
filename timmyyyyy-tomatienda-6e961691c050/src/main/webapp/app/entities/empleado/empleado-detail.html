@@ -1,0 +1,47 @@
+
+<div>
+    <h2><span data-translate="tomatiendaApp.empleado.detail.title">Empleado</span> {{vm.empleado.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="tomatiendaApp.empleado.nombre">Nombre</span></dt>
+        <dd>
+            <span>{{vm.empleado.nombre}}</span>
+        </dd>
+        <dt><span data-translate="tomatiendaApp.empleado.apellido">Apellido</span></dt>
+        <dd>
+            <span>{{vm.empleado.apellido}}</span>
+        </dd>
+        <dt><span data-translate="tomatiendaApp.empleado.dni">Dni</span></dt>
+        <dd>
+            <span>{{vm.empleado.dni}}</span>
+        </dd>
+        <dt><span data-translate="tomatiendaApp.empleado.fechanac">Fechanac</span></dt>
+        <dd>
+            <span>{{vm.empleado.fechanac | date:'medium'}}</span>
+        </dd>
+        <dt><span data-translate="tomatiendaApp.empleado.ingreso">Ingreso</span></dt>
+        <dd>
+            <span>{{vm.empleado.ingreso | date:'medium'}}</span>
+        </dd>
+        <dt><span data-translate="tomatiendaApp.empleado.sueldo">Sueldo</span></dt>
+        <dd>
+            <span>{{vm.empleado.sueldo}}</span>
+        </dd>
+        <dt><span data-translate="tomatiendaApp.empleado.cargo">Cargo</span></dt>
+        <dd>
+            <span>{{vm.empleado.cargo}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="empleado-detail.edit({id:vm.empleado.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

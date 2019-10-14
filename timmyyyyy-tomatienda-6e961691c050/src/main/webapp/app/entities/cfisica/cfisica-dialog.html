@@ -1,0 +1,58 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myCfisicaLabel" data-translate="tomatiendaApp.cfisica.home.createOrEditLabel">Create or edit a Cfisica</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.cfisica.id">
+            <label for="id" data-translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.cfisica.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="tomatiendaApp.cfisica.importe" for="field_importe">Importe</label>
+            <input type="number" class="form-control" name="importe" id="field_importe"
+                    ng-model="vm.cfisica.importe"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="tomatiendaApp.cfisica.fecha" for="field_fecha">Fecha</label>
+                <div class="input-group">
+                    <input id="field_fecha" type="text" class="form-control" name="fecha" datetime-picker="{{dateformat}}" ng-model="vm.cfisica.fecha" is-open="vm.datePickerOpenStatus.fecha"
+                    />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('fecha')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="tomatiendaApp.cfisica.codigo" for="field_codigo">Codigo</label>
+            <input type="number" class="form-control" name="codigo" id="field_codigo"
+                    ng-model="vm.cfisica.codigo"
+                    />
+        </div>
+
+        <div class="form-group">
+            <label data-translate="tomatiendaApp.cfisica.empleado" for="field_empleado">Empleado</label>
+            <select class="form-control" id="field_empleado" name="empleado" ng-model="vm.cfisica.empleado" ng-options="empleado as empleado.id for empleado in vm.empleados track by empleado.id">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label data-translate="tomatiendaApp.cfisica.producto" for="field_producto">Producto</label>
+            <select class="form-control" id="field_producto" multiple name="producto" ng-model="vm.cfisica.productos" ng-options="producto as producto.nombre for producto in vm.productos track by producto.id"></select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span data-translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span data-translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

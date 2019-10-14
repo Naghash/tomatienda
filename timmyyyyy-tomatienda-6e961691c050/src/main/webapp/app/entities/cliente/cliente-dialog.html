@@ -1,0 +1,90 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myClienteLabel" data-translate="tomatiendaApp.cliente.home.createOrEditLabel">Create or edit a Cliente</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.cliente.id">
+            <label for="id" data-translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.cliente.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="tomatiendaApp.cliente.nombre" for="field_nombre">Nombre</label>
+            <input type="text" class="form-control" name="nombre" id="field_nombre"
+                    ng-model="vm.cliente.nombre"
+                    required/>
+            <div ng-show="editForm.nombre.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.nombre.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="tomatiendaApp.cliente.apellidos" for="field_apellidos">Apellidos</label>
+            <input type="text" class="form-control" name="apellidos" id="field_apellidos"
+                    ng-model="vm.cliente.apellidos"
+                    required/>
+            <div ng-show="editForm.apellidos.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.apellidos.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="tomatiendaApp.cliente.direccion" for="field_direccion">Direccion</label>
+            <input type="text" class="form-control" name="direccion" id="field_direccion"
+                    ng-model="vm.cliente.direccion"
+                    required/>
+            <div ng-show="editForm.direccion.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.direccion.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="tomatiendaApp.cliente.email" for="field_email">Email</label>
+            <input type="text" class="form-control" name="email" id="field_email"
+                    ng-model="vm.cliente.email"
+                    required ng-pattern="/^([a-zA-Z0-9_\\-\\.]+)@([a-zA-Z0-9_\\-\\.]+)\\.([a-zA-Z]{2,5})$/"/>
+            <div ng-show="editForm.email.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.email.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.email.$error.pattern" data-translate="entity.validation.pattern" translate-value-pattern="Email">
+                    This field should follow pattern for "Email".
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="tomatiendaApp.cliente.compras" for="field_compras">Compras</label>
+            <input type="number" class="form-control" name="compras" id="field_compras"
+                    ng-model="vm.cliente.compras"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="tomatiendaApp.cliente.total" for="field_total">Total</label>
+            <input type="number" class="form-control" name="total" id="field_total"
+                    ng-model="vm.cliente.total"
+                    />
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span data-translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span data-translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

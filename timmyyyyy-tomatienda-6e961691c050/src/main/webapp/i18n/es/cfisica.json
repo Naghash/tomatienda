@@ -1,0 +1,26 @@
+
+{
+    "tomatiendaApp": {
+        "cfisica" : {
+            "home": {
+                "title": "Cfisicas",
+                "createLabel": "Crear nuevo Cfisica",
+                "createOrEditLabel": "Crear o editar Cfisica"
+            },
+            "created": "Un nuevo Cfisica ha sido creado con el identificador {{ param }}",
+            "updated": "Un Cfisica ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Cfisica ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Cfisica {{ id }}?"
+            },
+            "detail": {
+                "title": "Cfisica"
+            },
+            "importe": "Importe",
+            "fecha": "Fecha",
+            "codigo": "Codigo",
+            "empleado": "Empleado",
+            "producto": "Producto"
+        }
+    }
+}

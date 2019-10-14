@@ -1,0 +1,59 @@
+
+<div>
+    <h2><span data-translate="tomatiendaApp.producto.detail.title">Producto</span> {{vm.producto.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="tomatiendaApp.producto.nombre">Nombre</span></dt>
+        <dd>
+            <span>{{vm.producto.nombre}}</span>
+        </dd>
+        <dt><span data-translate="tomatiendaApp.producto.stock">Stock</span></dt>
+        <dd>
+            <span>{{vm.producto.stock}}</span>
+        </dd>
+        <dt><span data-translate="tomatiendaApp.producto.caducidad">Caducidad</span></dt>
+        <dd>
+            <span>{{vm.producto.caducidad | date:'medium'}}</span>
+        </dd>
+        <dt><span data-translate="tomatiendaApp.producto.seccion">Seccion</span></dt>
+        <dd>
+            <span>{{vm.producto.seccion}}</span>
+        </dd>
+        <dt><span data-translate="tomatiendaApp.producto.descripcion">Descripcion</span></dt>
+        <dd>
+            <span>{{vm.producto.descripcion}}</span>
+        </dd>
+        <dt><span data-translate="tomatiendaApp.producto.pvp">Pvp</span></dt>
+        <dd>
+            <span>{{vm.producto.pvp}}</span>
+        </dd>
+        <dt><span data-translate="tomatiendaApp.producto.pcompra">Pcompra</span></dt>
+        <dd>
+            <span>{{vm.producto.pcompra}}</span>
+        </dd>
+        <dt><span data-translate="tomatiendaApp.producto.minstock">Minstock</span></dt>
+        <dd>
+            <span>{{vm.producto.minstock}}</span>
+        </dd>
+        <dt><span data-translate="tomatiendaApp.producto.lote">Lote</span></dt>
+        <dd>
+            <span>{{vm.producto.lote}}</span>
+        </dd>
+        <dt><span data-translate="tomatiendaApp.producto.foto">Foto</span></dt>
+        <dd>
+            <span>{{vm.producto.foto}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="producto-detail.edit({id:vm.producto.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>
